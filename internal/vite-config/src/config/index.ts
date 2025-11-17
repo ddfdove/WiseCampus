@@ -8,6 +8,7 @@ import { defineLibraryConfig } from './library';
 
 export * from './application';
 export * from './library';
+export type { DefineConfig }; // ✅ 导出类型
 
 function defineConfig(
   userConfigPromise?: DefineConfig,

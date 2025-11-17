@@ -42,6 +42,12 @@
       "cache": false,
       "persistent": true
     },
+    "local": {
+      "dependsOn": [],
+      "outputs": [],
+      "cache": false,
+      "persistent": true
+    },
     "typecheck": {
       "outputs": []
     }
