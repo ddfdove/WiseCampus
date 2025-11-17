@@ -2,7 +2,7 @@
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { MallCombinationActivityApi } from '#/api/mall/promotion/combination/combinationActivity';
 
-import { confirm, DocAlert, Page, useVbenModal } from '@vben/common-ui';
+import { confirm, Page, useVbenModal } from '@vben/common-ui';
 
 import { message } from 'ant-design-vue';
 
@@ -118,15 +118,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 
 <template>
   <Page auto-content-height>
-    <template #doc>
-      <DocAlert
-        title="【营销】拼团活动"
-        url="https://doc.iocoder.cn/mall/promotion-combination/"
-      />
-    </template>
-
     <FormModal @success="handleRefresh" />
-
     <Grid table-title="拼团活动列表">
       <template #toolbar-tools>
         <TableAction

@@ -2,7 +2,7 @@
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { MemberLevelApi } from '#/api/member/level';
 
-import { DocAlert, Page, useVbenModal } from '@vben/common-ui';
+import { Page, useVbenModal } from '@vben/common-ui';
 
 import { message } from 'ant-design-vue';
 
@@ -82,11 +82,6 @@ const [Grid, gridApi] = useVbenVxeGrid({
 
 <template>
   <Page auto-content-height>
-    <DocAlert
-      title="会员等级、积分、签到"
-      url="https://doc.iocoder.cn/member/level/"
-    />
-
     <FormModal @success="handleRefresh" />
     <Grid table-title="等级列表">
       <template #toolbar-tools>

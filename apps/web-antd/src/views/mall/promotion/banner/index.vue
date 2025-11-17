@@ -2,7 +2,7 @@
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { MallBannerApi } from '#/api/mall/market/banner';
 
-import { DocAlert, Page, useVbenModal } from '@vben/common-ui';
+import { Page, useVbenModal } from '@vben/common-ui';
 
 import { message } from 'ant-design-vue';
 
@@ -81,13 +81,6 @@ const [Grid, gridApi] = useVbenVxeGrid({
 
 <template>
   <Page auto-content-height>
-    <template #doc>
-      <DocAlert
-        title="【营销】内容管理"
-        url="https://doc.iocoder.cn/mall/promotion-content/"
-      />
-    </template>
-
     <FormModal @success="handleRefresh" />
     <Grid table-title="Banner列表">
       <template #toolbar-tools>
