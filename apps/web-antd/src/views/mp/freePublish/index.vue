@@ -1,12 +1,11 @@
 <script lang="ts" setup>
-import { DocAlert, Page } from '@vben/common-ui';
+import { Page } from '@vben/common-ui';
 
 import { Button } from 'ant-design-vue';
 </script>
 
 <template>
   <Page>
-    <DocAlert title="公众号图文" url="https://doc.iocoder.cn/mp/article/" />
     <Button
       danger
       type="link"

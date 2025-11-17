@@ -4,7 +4,7 @@ import type { MallCouponApi } from '#/api/mall/promotion/coupon/coupon';
 
 import { ref } from 'vue';
 
-import { DocAlert, Page } from '@vben/common-ui';
+import { Page } from '@vben/common-ui';
 import { DICT_TYPE } from '@vben/constants';
 import { getDictOptions } from '@vben/hooks';
 import { $t } from '@vben/locales';
@@ -105,13 +105,6 @@ const [Grid, gridApi] = useVbenVxeGrid({
 
 <template>
   <Page auto-content-height>
-    <template #doc>
-      <DocAlert
-        title="【营销】优惠劵"
-        url="https://doc.iocoder.cn/mall/promotion-coupon/"
-      />
-    </template>
-
     <Grid>
       <template #toolbar-actions>
         <Tabs class="w-full" @change="handleTabChange">

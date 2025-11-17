@@ -2,7 +2,7 @@
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { MallBargainRecordApi } from '#/api/mall/promotion/bargain/bargainRecord';
 
-import { DocAlert, Page, useVbenModal } from '@vben/common-ui';
+import { Page, useVbenModal } from '@vben/common-ui';
 
 import { ACTION_ICON, TableAction, useVbenVxeGrid } from '#/adapter/vxe-table';
 import { getBargainRecordPage } from '#/api/mall/promotion/bargain/bargainRecord';
@@ -55,15 +55,7 @@ const [Grid] = useVbenVxeGrid({
 
 <template>
   <Page auto-content-height>
-    <template #doc>
-      <DocAlert
-        title="【营销】砍价活动"
-        url="https://doc.iocoder.cn/mall/promotion-bargain/"
-      />
-    </template>
-
     <HelpListModalApi />
-
     <Grid table-title="砍价记录列表">
       <template #actions="{ row }">
         <TableAction

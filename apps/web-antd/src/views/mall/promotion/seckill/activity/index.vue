@@ -4,7 +4,7 @@ import type { MallSeckillActivityApi } from '#/api/mall/promotion/seckill/seckil
 
 import { onMounted } from 'vue';
 
-import { DocAlert, Page, useVbenModal } from '@vben/common-ui';
+import { Page, useVbenModal } from '@vben/common-ui';
 import { $t } from '@vben/locales';
 
 import { message, Tag } from 'ant-design-vue';
@@ -117,13 +117,6 @@ onMounted(async () => {
 
 <template>
   <Page auto-content-height>
-    <template #doc>
-      <DocAlert
-        title="【营销】秒杀活动"
-        url="https://doc.iocoder.cn/mall/promotion-seckill/"
-      />
-    </template>
-
     <FormModal @success="handleRefresh" />
     <Grid table-title="秒杀活动列表">
       <template #toolbar-tools>

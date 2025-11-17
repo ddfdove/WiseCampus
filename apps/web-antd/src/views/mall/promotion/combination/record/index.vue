@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
-import { DocAlert, Page, useVbenModal } from '@vben/common-ui';
+import { Page, useVbenModal } from '@vben/common-ui';
 
 import { ACTION_ICON, TableAction, useVbenVxeGrid } from '#/adapter/vxe-table';
 import { getCombinationRecordPage } from '#/api/mall/promotion/combination/combinationRecord';
@@ -54,15 +54,7 @@ const [Grid] = useVbenVxeGrid({
 
 <template>
   <Page auto-content-height>
-    <template #doc>
-      <DocAlert
-        title="【营销】拼团活动"
-        url="https://doc.iocoder.cn/mall/promotion-combination/"
-      />
-    </template>
-
     <UserListModal />
-
     <Grid table-title="拼团记录列表">
       <template #actions="{ row }">
         <TableAction
