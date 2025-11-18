@@ -19,6 +19,7 @@ import {
   VxeModal,
   VxeNumberInput,
   VxePager,
+  VxePrint,
   // VxeList,
   // VxeModal,
   // VxeOptgroup,
@@ -70,6 +71,7 @@ export function initVxeTable() {
   VxeUI.component(VxeColgroup);
   VxeUI.component(VxeGrid);
   VxeUI.component(VxeToolbar);
+  VxeUI.component(VxePrint);
 
   VxeUI.component(VxeButton);
   // VxeUI.component(VxeButtonGroup);

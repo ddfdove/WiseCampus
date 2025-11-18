@@ -152,11 +152,37 @@ setupVbenVxeTable({
         if (!props) {
           return '';
         }
+
         // 使用 DictTag 组件替代原来的实现
         return h(DictTag, {
           type: props.type,
           value: row[column.field]?.toString(),
         });
+      },
+    });
+
+    // 自定义的一个渲染器可用于测试或者前端写死的字典数值
+    // 注册全局自定义渲染器 CellCustom
+    vxeUI.renderer.add('CellCustom', {
+      renderTableDefault(renderOpts, params) {
+        const { props } = renderOpts;
+        const { column, row } = params;
+
+        if (!props || !props.options) return '';
+
+        // 获取当前列的值
+        const value = row[column.field];
+
+        // 根据 value 查找对应的 label
+        const item = props.options.find(
+          (opt: { label: string; value: any }) => opt.value === value,
+        );
+
+        return h(
+          Tag,
+          { color: item?.color || 'default' },
+          item ? item.label : value,
+        );
       },
     });
 

@@ -115,40 +115,12 @@ const [Grid, gridApi] = useVbenVxeGrid({
     printConfig: {
       sheetName: '学生列表',
       isHeader: true,
-      columns: useGridColumns()?.filter(
-        (col) => !col.slots && col.type !== 'checkbox',
-      ),
-      data: [
-        {
-          id: 1,
-          name: '张三',
-          sex: '男',
-          birthday: '2000-01-01',
-          description: '测试数据',
-          createTime: '2025-11-18',
-        },
-        {
-          id: 2,
-          name: '李四',
-          sex: '女',
-          birthday: '2001-02-02',
-          description: '测试数据',
-          createTime: '2025-11-18',
-        },
-        {
-          id: 3,
-          name: '王五',
-          sex: '男',
-          birthday: '2002-03-03',
-          description: '测试数据',
-          createTime: '2025-11-18',
-        },
-      ],
+      // 直接提供列和数据
     },
 
     toolbarConfig: {
       refresh: true,
-      search: true,
+      // search: true,
       print: true,
     },
   } as VxeTableGridOptions<YudaoDemo03StudentApi.Demo03Student>,
@@ -173,6 +145,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 
               onClick: handleCreate,
             },
+
             {
               label: $t('ui.actionTitle.export'),
               type: 'primary',

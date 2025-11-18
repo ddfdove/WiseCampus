@@ -32,6 +32,7 @@ const dictTag = computed(() => {
 
   // 获取字典对象
   const dict = getDictObj(props.type, String(props.value));
+
   if (!dict) {
     return null;
   }

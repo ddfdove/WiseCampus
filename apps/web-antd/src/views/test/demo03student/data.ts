@@ -114,6 +114,15 @@ export function useGridColumns(): VxeTableGridOptions<YudaoDemo03StudentApi.Demo
       field: 'sex',
       title: '性别',
       minWidth: 120,
+      cellRender: {
+        name: 'CellCustom',
+        props: {
+          options: [
+            { label: '男', value: 1, color: 'blue' },
+            { label: '女', value: 2, color: 'green' },
+          ],
+        },
+      },
     },
     {
       field: 'birthday',
