@@ -1,9 +1,8 @@
 import type { VbenFormSchema } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
-import type { YudaoDemo03StudentApi } from '#/api/yudao/demo03student';
+import type { YudaoDemo03StudentApi } from '#/api/test/demo03student';
 
-import { getDictOptions } from '@vben/hooks';
-
+import { z } from '#/adapter/form';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 新增/修改的表单 */
@@ -20,11 +19,13 @@ export function useFormSchema(): VbenFormSchema[] {
     {
       fieldName: 'name',
       label: '名字',
-      rules: 'required',
+      // rules: 'required',
       component: 'Input',
+      // defaultValue: '小美',
       componentProps: {
         placeholder: '请输入名字',
       },
+      rules: z.string().min(1, { message: '请输入名字' }).default('456456'),
     },
     {
       fieldName: 'sex',
@@ -32,7 +33,10 @@ export function useFormSchema(): VbenFormSchema[] {
       rules: 'required',
       component: 'RadioGroup',
       componentProps: {
-        options: [],
+        options: [
+          { label: '男', value: 'M' },
+          { label: '女', value: 'F' },
+        ],
         buttonStyle: 'solid',
         optionType: 'button',
       },
@@ -64,6 +68,7 @@ export function useGridFormSchema(): VbenFormSchema[] {
       fieldName: 'name',
       label: '名字',
       component: 'Input',
+
       componentProps: {
         allowClear: true,
         placeholder: '请输入名字',
@@ -75,7 +80,7 @@ export function useGridFormSchema(): VbenFormSchema[] {
       component: 'Select',
       componentProps: {
         allowClear: true,
-        options: [],
+
         placeholder: '请选择性别',
       },
     },
@@ -88,31 +93,13 @@ export function useGridFormSchema(): VbenFormSchema[] {
         allowClear: true,
       },
     },
-    {
-      fieldName: 'description',
-      label: '简介',
-      component: 'Input',
-      componentProps: {
-        allowClear: true,
-        placeholder: '请输入简介',
-      },
-    },
-    {
-      fieldName: 'createTime',
-      label: '创建时间',
-      component: 'RangePicker',
-      componentProps: {
-        ...getRangePickerDefaultProps(),
-        allowClear: true,
-      },
-    },
   ];
 }
 
 /** 列表的字段 */
 export function useGridColumns(): VxeTableGridOptions<YudaoDemo03StudentApi.Demo03Student>['columns'] {
   return [
-  { type: 'checkbox', width: 40 },
+    { type: 'checkbox', width: 40 },
     {
       field: 'id',
       title: '编号',
@@ -153,4 +140,3 @@ export function useGridColumns(): VxeTableGridOptions<YudaoDemo03StudentApi.Demo
     },
   ];
 }
-

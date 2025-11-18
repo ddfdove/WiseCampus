@@ -145,7 +145,11 @@ const formSchema = computed((): VbenFormSchema[] => {
       component: 'VbenInput',
       componentProps: {
         placeholder: $t('authentication.usernameTip'),
+        class: 'text-xl py-6', // tailwind 或自定义 class 设置字体大小
       },
+
+      formItemClass: 'my-2   ', // 表单项容器
+      labelClass: 'text-lg font-semibold', // label 样式
       fieldName: 'username',
       label: $t('authentication.username'),
       rules: z
@@ -157,7 +161,9 @@ const formSchema = computed((): VbenFormSchema[] => {
       component: 'VbenInputPassword',
       componentProps: {
         placeholder: $t('authentication.passwordTip'),
+        class: 'text-xl py-6', // tailwind 或自定义 class 设置字体大小
       },
+      formItemClass: 'my-2   ', // 表单项容器
       fieldName: 'password',
       label: $t('authentication.password'),
       rules: z

@@ -113,9 +113,7 @@ const shouldRequired = computed(() => {
   }
 
   if (isString(currentRules.value)) {
-    return ['mobileRequired', 'required', 'selectRequired'].includes(
-      currentRules.value,
-    );
+    return ['required', 'selectRequired'].includes(currentRules.value);
   }
 
   let isOptional = currentRules?.value?.isOptional?.();
@@ -298,20 +296,20 @@ onUnmounted(() => {
         'form-is-required': shouldRequired,
         'flex-col': isVertical,
         'flex-row items-center': !isVertical,
-        'py-4': !compact,
-        'py-2': compact,
+        'pb-4': !compact,
+        'pb-2': compact,
       }"
-      class="relative flex min-h-16 text-2xl"
+      class="relative flex"
       v-bind="$attrs"
     >
       <FormLabel
         v-if="!hideLabel"
         :class="
           cn(
-            'flex h-8 leading-8',
+            'flex leading-6',
             {
-              'mr-3 flex-shrink-0 justify-end': !isVertical,
-              'mb-2 flex-row': isVertical,
+              'mr-2 flex-shrink-0 justify-end': !isVertical,
+              'mb-1 flex-row': isVertical,
             },
             labelClass,
           )
@@ -326,7 +324,7 @@ onUnmounted(() => {
           <VbenRenderContent :content="label" />
         </template>
       </FormLabel>
-      <div class="flex-auto overflow-hidden p-[2px]">
+      <div class="flex-auto overflow-hidden p-[1px]">
         <div :class="cn('relative flex w-full items-center', wrapperClass)">
           <FormControl :class="cn(controlClass)">
             <slot
@@ -340,9 +338,8 @@ onUnmounted(() => {
               <component
                 :is="FieldComponent"
                 ref="fieldComponentRef"
-                class="p-6 text-2xl"
                 :class="{
-                  'border-destructive focus:border-destructive hover:border-destructive/80 text-xl focus:shadow-[0_0_0_2px_rgba(255,38,5,0.06)]':
+                  'border-destructive focus:border-destructive hover:border-destructive/80 focus:shadow-[0_0_0_2px_rgba(255,38,5,0.06)]':
                     isInValid,
                 }"
                 v-bind="createComponentProps(slotProps)"
@@ -370,7 +367,7 @@ onUnmounted(() => {
                     <CircleAlert
                       :class="
                         cn(
-                          'text-foreground/80 hover:text-foreground inline-flex size-10 cursor-pointer',
+                          'text-foreground/80 hover:text-foreground inline-flex size-5 cursor-pointer',
                         )
                       "
                     />
@@ -381,16 +378,16 @@ onUnmounted(() => {
             </slot>
           </FormControl>
           <!-- 自定义后缀 -->
-          <div v-if="suffix" class="ml-1 text-4xl">
-            <VbenRenderContent :content="suffix" class="" />
+          <div v-if="suffix" class="ml-1">
+            <VbenRenderContent :content="suffix" />
           </div>
-          <FormDescription v-if="description" class="ml-1 text-4xl">
+          <FormDescription v-if="description" class="ml-1">
             <VbenRenderContent :content="description" />
           </FormDescription>
         </div>
 
         <Transition name="slide-up" v-if="!compact">
-          <FormMessage class="absolute text-4xl" />
+          <FormMessage class="absolute" />
         </Transition>
       </div>
     </FormItem>

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
-import type { YudaoDemo03StudentApi } from '#/api/yudao/demo03student';
+import type { YudaoDemo03StudentApi } from '#/api/test/demo03student';
 
 import { ref } from 'vue';
 
@@ -107,13 +107,49 @@ const [Grid, gridApi] = useVbenVxeGrid({
         },
       },
     },
+
     rowConfig: {
       keyField: 'id',
       isHover: true,
     },
+    printConfig: {
+      sheetName: '学生列表',
+      isHeader: true,
+      columns: useGridColumns()?.filter(
+        (col) => !col.slots && col.type !== 'checkbox',
+      ),
+      data: [
+        {
+          id: 1,
+          name: '张三',
+          sex: '男',
+          birthday: '2000-01-01',
+          description: '测试数据',
+          createTime: '2025-11-18',
+        },
+        {
+          id: 2,
+          name: '李四',
+          sex: '女',
+          birthday: '2001-02-02',
+          description: '测试数据',
+          createTime: '2025-11-18',
+        },
+        {
+          id: 3,
+          name: '王五',
+          sex: '男',
+          birthday: '2002-03-03',
+          description: '测试数据',
+          createTime: '2025-11-18',
+        },
+      ],
+    },
+
     toolbarConfig: {
       refresh: true,
       search: true,
+      print: true,
     },
   } as VxeTableGridOptions<YudaoDemo03StudentApi.Demo03Student>,
   gridEvents: {
@@ -134,14 +170,14 @@ const [Grid, gridApi] = useVbenVxeGrid({
               label: $t('ui.actionTitle.create', ['学生']),
               type: 'primary',
               icon: ACTION_ICON.ADD,
-              auth: ['yudao:demo03-student:create'],
+
               onClick: handleCreate,
             },
             {
               label: $t('ui.actionTitle.export'),
               type: 'primary',
               icon: ACTION_ICON.DOWNLOAD,
-              auth: ['yudao:demo03-student:export'],
+
               onClick: handleExport,
             },
             {
@@ -149,7 +185,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               type: 'primary',
               danger: true,
               icon: ACTION_ICON.DELETE,
-              auth: ['yudao:demo03-student:delete'],
+
               disabled: isEmpty(checkedIds),
               onClick: handleDeleteBatch,
             },
@@ -163,7 +199,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               label: $t('common.edit'),
               type: 'link',
               icon: ACTION_ICON.EDIT,
-              auth: ['yudao:demo03-student:update'],
+
               onClick: handleEdit.bind(null, row),
             },
             {
@@ -171,7 +207,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               type: 'link',
               danger: true,
               icon: ACTION_ICON.DELETE,
-              auth: ['yudao:demo03-student:delete'],
+
               popConfirm: {
                 title: $t('ui.actionMessage.deleteConfirm', [row.id]),
                 confirm: handleDelete.bind(null, row),

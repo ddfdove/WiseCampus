@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { YudaoDemo03StudentApi } from '#/api/yudao/demo03student';
+import type { YudaoDemo03StudentApi } from '#/api/test/demo03student';
 
 import { computed, ref } from 'vue';
 
