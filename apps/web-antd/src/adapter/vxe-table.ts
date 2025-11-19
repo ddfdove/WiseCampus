@@ -49,6 +49,9 @@ setupVbenVxeTable({
           // 全局禁用vxe-table的表单配置，使用formOptions
           enabled: false,
         },
+        mouseConfig: {
+          area: true,
+        },
         toolbarConfig: {
           import: false, // 是否导入
           export: false, // 是否导出
@@ -79,6 +82,41 @@ setupVbenVxeTable({
         showOverflow: true,
         size: 'small',
       } as VxeTableGridOptions,
+    });
+
+    // 注册一个导出菜单
+    vxeUI.menus.add('myExportMenu', {
+      menuMethod({ $table }) {
+        $table.openExport();
+      },
+    });
+    // 注册一个自定义配置菜单
+    vxeUI.menus.add('myCustomMenu', {
+      menuMethod({ $table }) {
+        $table.openCustom();
+      },
+    });
+    vxeUI.menus.add('myFindMenu', {
+      menuMethod({ $table }) {
+        $table.openFind();
+      },
+    });
+    vxeUI.menus.add('myFilterMenu', {
+      menuMethod({ $table }) {
+        $table.openFNR({ type: 'find' });
+      },
+    });
+    // vxeUI.menus.add('myFilterMenu', {
+    //   menuMethod({ $table }) {
+    //     $table.;
+    //   },
+    // });
+
+    // 注册一个打印菜单
+    vxeUI.menus.add('myPrintMenu', {
+      menuMethod({ $table }) {
+        $table.openPrint();
+      },
     });
 
     // 表格配置项可以用 cellRender: { name: 'CellImage' },

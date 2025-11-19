@@ -81,6 +81,7 @@ catalog:
   "@fullcalendar/interaction": "^6.1.19"
   "@fullcalendar/timegrid": "^6.1.19"
   "@fullcalendar/vue3": "^6.1.19"
+  "@vxe-ui/plugin-menu": "^4.1.1 "
   ant-design-vue: ^4.2.6
   archiver: ^7.0.1
   autoprefixer: ^10.4.21
@@ -223,8 +224,8 @@ catalog:
   vue-tsc: 2.2.10
   vue3-signature: ^0.2.4
   vuedraggable: ^4.1.0
-  vxe-pc-ui: ^4.9.29
-  vxe-table: ^4.16.11
+  vxe-pc-ui: ^4.10.27
+  vxe-table: ^4.17.17
   watermark-js-plus: ^1.6.2
   zod: ^3.25.67
   zod-defaults: ^0.1.3

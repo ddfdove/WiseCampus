@@ -6,6 +6,7 @@ import { usePreferences } from '@vben/preferences';
 
 import { useVbenForm } from '@vben-core/form-ui';
 
+import VxeUIPluginMenu from '@vxe-ui/plugin-menu';
 import {
   VxeButton,
   VxeCheckbox,
@@ -16,6 +17,7 @@ import {
   VxeIcon,
   VxeInput,
   VxeLoading,
+  VxeMenu,
   VxeModal,
   VxeNumberInput,
   VxePager,
@@ -65,13 +67,14 @@ export function initVxeTable() {
   if (isInit) {
     return;
   }
-
+  VxeUI.use(VxeUIPluginMenu);
   VxeUI.component(VxeTable);
   VxeUI.component(VxeColumn);
   VxeUI.component(VxeColgroup);
   VxeUI.component(VxeGrid);
   VxeUI.component(VxeToolbar);
   VxeUI.component(VxePrint);
+  VxeUI.component(VxeMenu);
 
   VxeUI.component(VxeButton);
   // VxeUI.component(VxeButtonGroup);

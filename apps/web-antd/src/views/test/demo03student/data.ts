@@ -34,8 +34,8 @@ export function useFormSchema(): VbenFormSchema[] {
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: '男', value: 'M' },
-          { label: '女', value: 'F' },
+          { label: '男', value: 1 },
+          { label: '女', value: 2 },
         ],
         buttonStyle: 'solid',
         optionType: 'button',
@@ -80,8 +80,12 @@ export function useGridFormSchema(): VbenFormSchema[] {
       component: 'Select',
       componentProps: {
         allowClear: true,
-
-        placeholder: '请选择性别',
+        options: [
+          { label: '男', value: 1 },
+          { label: '女', value: 2 },
+        ],
+        buttonStyle: 'solid',
+        optionType: 'button',
       },
     },
     {
@@ -129,11 +133,17 @@ export function useGridColumns(): VxeTableGridOptions<YudaoDemo03StudentApi.Demo
       title: '出生日期',
       minWidth: 120,
       formatter: 'formatDateTime',
+      sortable: true,
     },
     {
       field: 'description',
       title: '简介',
       minWidth: 120,
+      formatter: ({ cellValue }) => {
+        if (!cellValue) return '-';
+        // 使用正则去掉 HTML 标签
+        return cellValue.replaceAll(/<[^>]+>/g, '');
+      },
     },
     {
       field: 'createTime',

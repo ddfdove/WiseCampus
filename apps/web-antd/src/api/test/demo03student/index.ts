@@ -22,6 +22,12 @@ export function getDemo03StudentPage(params: PageParam) {
     { params },
   );
 }
+/** 查询学生分页 */
+export function getDemo03StudentList() {
+  return requestClient.get<PageResult<YudaoDemo03StudentApi.Demo03Student>>(
+    '/test/demo03-student/list',
+  );
+}
 
 /** 查询学生详情 */
 export function getDemo03Student(id: number) {

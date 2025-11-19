@@ -107,7 +107,37 @@ const [Grid, gridApi] = useVbenVxeGrid({
         },
       },
     },
+    keyboardConfig: {
+      arrowCursorLock: true, // 方向键光标锁，开启后处于非聚焦式编辑状态，将支持在编辑状态中通过方向键切换单元格。（切换为聚焦编辑状态，可以按 F2 键或者鼠标左键点击输入框，就可以用方向键左右移动输入框的光标）
+      isClip: true, // 是否开启复制粘贴
+      isArrow: true, // 是否开启方向键功能
+      isShift: true, // 是否开启同时按住方向键以活动区域为起始，向指定方向扩展单元格区域
+      isTab: true, // 是否开启 Tab 键功能
+      isEnter: true, // 是否开启回车键功能
+      isEdit: true, // 是否开启任意键进入编辑（功能键除外）
+      isDel: true, // 是否开启删除键功能
+      isEsc: true, // 是否开启Esc键关闭编辑功能
+      isFNR: true, // 是否开启查找与替换
+      isMerge: true // 是否启用合并
+    },
+    menuConfig: {
 
+      body: {
+        options: [
+          [
+            { code: 'myExportMenu', name: '导出数据', prefixIcon: 'vxe-icon-download' },
+            { code: 'myPrintMenu', name: '打印',prefixIcon: 'vxe-icon-print' },
+            { code: 'myCustomMenu', name: '自定义配置列',prefixIcon: 'vxe-icon-sort-alpha-asc' },
+            { code: 'COMMIT_PROXY_RELOAD', name: '刷新',prefixIcon: 'vxe-icon-repeat roll' },
+            { code: 'COMMIT_PROXY_QUERY', name: '返回第一页',prefixIcon: 'vxe-icon-swap'  },
+            { code: 'SORT_ASC', name: '升序',prefixIcon: 'vxe-icon-caret-up' },
+            { code: 'SORT_DESC', name: '降序', prefixIcon: 'vxe-icon-caret-down' },
+          ],
+
+        ],
+      },
+
+    },
     rowConfig: {
       keyField: 'id',
       isHover: true,
@@ -117,11 +147,23 @@ const [Grid, gridApi] = useVbenVxeGrid({
       isHeader: true,
       // 直接提供列和数据
     },
+    exportConfig: {
+      filename: '学生列表',
+      sheetName: '学生列表',
+      // remote: true, // 开启后端导出
+      // exportMethod: async ({ options }) => {
+      //   // 这里可以调用你的后端接口，返回整个列表数据
+      //   const res = await getDemo03StudentList();
+      //   console.log('exportMethod', res);
 
+      //   return res; // 返回数组数据
+      // },
+    },
     toolbarConfig: {
       refresh: true,
       // search: true,
       print: true,
+      export: true,
     },
   } as VxeTableGridOptions<YudaoDemo03StudentApi.Demo03Student>,
   gridEvents: {
