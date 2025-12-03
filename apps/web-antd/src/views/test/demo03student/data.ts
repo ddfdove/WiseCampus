@@ -68,7 +68,6 @@ export function useGridFormSchema(): VbenFormSchema[] {
       fieldName: 'name',
       label: '名字',
       component: 'Input',
-
       componentProps: {
         allowClear: true,
         placeholder: '请输入名字',

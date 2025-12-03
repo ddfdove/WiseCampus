@@ -163,23 +163,23 @@ defineExpose({
     >
       <VbenButton
         v-if="showCodeLogin"
-        class="w-1/3 p-6 text-xl"
+        class="w-1/2 p-6 text-xl"
         variant="outline"
         @click="handleGo(codeLoginPath)"
       >
         {{ $t('authentication.mobileLogin') }}
       </VbenButton>
-      <VbenButton
+      <!-- <VbenButton
         v-if="showQrcodeLogin"
         class="ml-4 w-1/3 p-6 text-xl"
         variant="outline"
         @click="handleGo(qrCodeLoginPath)"
       >
         {{ $t('authentication.qrcodeLogin') }}
-      </VbenButton>
+      </VbenButton> -->
       <VbenButton
         v-if="showQrcodeLogin"
-        class="ml-4 w-1/3 p-6 text-xl"
+        class="ml-4 w-1/2 p-6 text-xl"
         variant="outline"
         @click="handleGo(registerPath)"
       >

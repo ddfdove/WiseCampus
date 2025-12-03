@@ -60,6 +60,9 @@ function handleUploadSuccess({ data, source }: any) {
   emit('change', { data, source });
   message.success($t('ui.cropper.uploadSuccess'));
 }
+function handleUploadError({ msg }: any) {
+  message.error(msg);
+}
 
 const closeModal = () => modalApi.close();
 const openModal = () => modalApi.open();
@@ -118,6 +121,7 @@ defineExpose({
       :src="sourceValue"
       :upload-api="uploadApi"
       @upload-success="handleUploadSuccess"
+      @upload-error="handleUploadError"
     />
   </div>
 </template>

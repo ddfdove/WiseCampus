@@ -7,12 +7,12 @@ const config: DefineConfig = async () => ({
   vite: {
     server: {
       proxy: {
-        '/admin-api': {
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/admin-api/, ''),
-          target: 'http://192.168.0.27:48080/admin-api',
-          ws: true,
-        },
+        // '/admin-api': {
+        //   changeOrigin: true,
+        //   rewrite: (path) => path.replace(/^\/admin-api/, ''),
+        //   target: 'http://192.168.0.27:48080/admin-api',
+        //   ws: true,
+        // },
       },
     },
   },

@@ -24,6 +24,9 @@ import Form from './modules/form.vue';
 const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: Form,
   destroyOnClose: true,
+  class: 'w-[40vw]',
+  draggable: true,
+  overlayBlur: 5,
 });
 
 /** 刷新表格 */
@@ -91,6 +94,8 @@ async function handleExport() {
 const [Grid, gridApi] = useVbenVxeGrid({
   formOptions: {
     schema: useGridFormSchema(),
+    actionLayout: 'rowEnd',
+    // actionPosition: 'right',
   },
   gridOptions: {
     columns: useGridColumns(),
@@ -118,25 +123,42 @@ const [Grid, gridApi] = useVbenVxeGrid({
       isDel: true, // 是否开启删除键功能
       isEsc: true, // 是否开启Esc键关闭编辑功能
       isFNR: true, // 是否开启查找与替换
-      isMerge: true // 是否启用合并
+      isMerge: true, // 是否启用合并
     },
     menuConfig: {
-
       body: {
         options: [
           [
-            { code: 'myExportMenu', name: '导出数据', prefixIcon: 'vxe-icon-download' },
-            { code: 'myPrintMenu', name: '打印',prefixIcon: 'vxe-icon-print' },
-            { code: 'myCustomMenu', name: '自定义配置列',prefixIcon: 'vxe-icon-sort-alpha-asc' },
-            { code: 'COMMIT_PROXY_RELOAD', name: '刷新',prefixIcon: 'vxe-icon-repeat roll' },
-            { code: 'COMMIT_PROXY_QUERY', name: '返回第一页',prefixIcon: 'vxe-icon-swap'  },
-            { code: 'SORT_ASC', name: '升序',prefixIcon: 'vxe-icon-caret-up' },
-            { code: 'SORT_DESC', name: '降序', prefixIcon: 'vxe-icon-caret-down' },
+            {
+              code: 'myExportMenu',
+              name: '导出数据',
+              prefixIcon: 'vxe-icon-download',
+            },
+            { code: 'myPrintMenu', name: '打印', prefixIcon: 'vxe-icon-print' },
+            {
+              code: 'myCustomMenu',
+              name: '自定义配置列',
+              prefixIcon: 'vxe-icon-sort-alpha-asc',
+            },
+            {
+              code: 'COMMIT_PROXY_RELOAD',
+              name: '刷新',
+              prefixIcon: 'vxe-icon-repeat roll',
+            },
+            {
+              code: 'COMMIT_PROXY_QUERY',
+              name: '返回第一页',
+              prefixIcon: 'vxe-icon-swap',
+            },
+            { code: 'SORT_ASC', name: '升序', prefixIcon: 'vxe-icon-caret-up' },
+            {
+              code: 'SORT_DESC',
+              name: '降序',
+              prefixIcon: 'vxe-icon-caret-down',
+            },
           ],
-
         ],
       },
-
     },
     rowConfig: {
       keyField: 'id',

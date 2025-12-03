@@ -16,13 +16,13 @@ export function useAppConfig(
     : (env as VbenAdminProAppConfigRaw);
 
   const {
-    VITE_GLOB_API_URL,
+    VITE_BASE_URL,
     VITE_GLOB_AUTH_DINGDING_CORP_ID,
     VITE_GLOB_AUTH_DINGDING_CLIENT_ID,
   } = config;
 
   const applicationConfig: ApplicationConfig = {
-    apiURL: VITE_GLOB_API_URL,
+    apiURL: VITE_BASE_URL,
     auth: {},
   };
   if (VITE_GLOB_AUTH_DINGDING_CORP_ID && VITE_GLOB_AUTH_DINGDING_CLIENT_ID) {
